@@ -1,16 +1,11 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
+CFLAGS = -Wall -g
 
-SRC_LIB = budget_lib.c input_utils.c file_io.c
+main: main.c budget_lib.c budget_lib.h input_utils.c input_utils.h
+	$(CC) $(CFLAGS) main.c budget_lib.c input_utils.c -o budget
 
-# interactive CLI app
-app: main.c $(SRC_LIB)
-	$(CC) $(CFLAGS) main.c $(SRC_LIB) -o budget_app.out
-
-# automated unit‑test executable (no keyboard input)
-test: test_budget.c $(SRC_LIB)
-	$(CC) $(CFLAGS) test_budget.c $(SRC_LIB) -o budget_test.out
-	./budget_test.out
+run: main
+	./budget
 
 clean:
-	rm -f *.out *.txt
+	rm -f budget *.o
