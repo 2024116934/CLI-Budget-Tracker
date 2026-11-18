@@ -61,12 +61,12 @@ int main(void)
                 state = STATE_MENU;
                 break;
             case STATE_SAVE:
-                printf("Save placeholder\n");
+                save_records("records.txt", records, record_count);
                 state = STATE_MENU;
                 break;
             case STATE_LOAD:
-                printf("Load placeholder\n");
-                state = STATE_MENU;
+                load_records("records.txt", records, &record_count);
+                tate = STATE_MENU;
                 break;
             case STATE_EXIT:
                 printf("Program exiting.\n");

@@ -27,3 +27,4 @@ void view_records(Transaction list[], int count);
 double calculate_balance(Transaction list[], int count);
 
 #endif
+#include "file_io.h"
