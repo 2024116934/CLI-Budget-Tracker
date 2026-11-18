@@ -17,8 +17,8 @@ int main(void)
                 printf("\n===== Budget Tracker =====\n");
                 printf("1. Add new record\n");
                 printf("2. View all records & balance\n");
-                printf("3. Save data to file\n");
-                printf("4. Load data from file\n");
+                printf("3. Save records to file\n");
+                printf("4. Load records from file\n");
                 printf("5. Exit\n");
                 printf("Please enter your choice: ");
                 if (!read_int(&choice))
@@ -30,21 +30,11 @@ int main(void)
 
                 switch (choice)
                 {
-                    case 1:
-                        state = STATE_ADD_RECORD;
-                        break;
-                    case 2:
-                        state = STATE_VIEW_RECORDS;
-                        break;
-                    case 3:
-                        state = STATE_SAVE;
-                        break;
-                    case 4:
-                        state = STATE_LOAD;
-                        break;
-                    case 5:
-                        state = STATE_EXIT;
-                        break;
+                    case 1: state = STATE_ADD_RECORD; break;
+                    case 2: state = STATE_VIEW_RECORDS; break;
+                    case 3: state = STATE_SAVE; break;
+                    case 4: state = STATE_LOAD; break;
+                    case 5: state = STATE_EXIT; break;
                     default:
                         printf("Invalid option, back to menu.\n");
                         state = STATE_MENU;
@@ -66,10 +56,10 @@ int main(void)
                 break;
             case STATE_LOAD:
                 load_records("records.txt", records, &record_count);
-                tate = STATE_MENU;
+                state = STATE_MENU;
                 break;
             case STATE_EXIT:
-                printf("Program exiting.\n");
+                printf("Program exit.\n");
                 break;
             default:
                 state = STATE_MENU;

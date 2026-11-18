@@ -2,9 +2,8 @@
 #define BUDGET_LIB_H
 
 #define MAX_RECORDS 20
-#define DESC_LEN 32
+#define DESC_LEN 64
 
-// FSM 状态枚举
 typedef enum {
     STATE_MENU,
     STATE_ADD_RECORD,
@@ -14,17 +13,16 @@ typedef enum {
     STATE_EXIT
 } AppState;
 
-// 交易结构体
 typedef struct {
     char description[DESC_LEN];
     double amount;
-    int is_income; // 1=收入，0=支出
+    int is_income; // 1 = income, 0 = expense
 } Transaction;
 
-// 函数声明（空壳，Entry2再补实现）
 void add_record(Transaction list[], int *count);
 void view_records(Transaction list[], int count);
 double calculate_balance(Transaction list[], int count);
 
-#endif
 #include "file_io.h"
+
+#endif

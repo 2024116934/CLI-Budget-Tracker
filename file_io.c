@@ -11,7 +11,6 @@ int save_records(const char *filename, Transaction list[], int count)
     }
     for(int i = 0; i < count; i++)
     {
-        // 格式：描述 金额 收入标记
         fprintf(fp, "%s %.2lf %d\n", list[i].description, list[i].amount, list[i].is_income);
     }
     fclose(fp);

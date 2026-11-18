@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * Add a new transaction record, check array boundary and input validity
+ */
 void add_record(Transaction list[], int *count)
 {
     if (*count >= MAX_RECORDS)
@@ -32,13 +35,16 @@ void add_record(Transaction list[], int *count)
         return;
     }
 
-    strncpy(list[*count].description, desc, DESC_LEN-1);
+    strncpy(list[*count].description, desc, DESC_LEN - 1);
     list[*count].amount = amount;
     list[*count].is_income = is_income;
     (*count)++;
     printf("Record added successfully!\n");
 }
 
+/**
+ * Print all stored transactions and show current balance
+ */
 void view_records(Transaction list[], int count)
 {
     printf("\n==== Record List ====\n");
@@ -60,6 +66,9 @@ void view_records(Transaction list[], int count)
     printf("Current balance: %.2f\n", bal);
 }
 
+/**
+ * Calculate balance: income add, expense subtract
+ */
 double calculate_balance(Transaction list[], int count)
 {
     double sum = 0.0;

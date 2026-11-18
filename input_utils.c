@@ -4,7 +4,6 @@
 void read_line(char *buf, int buf_len)
 {
     fgets(buf, buf_len, stdin);
-    // 去掉末尾换行 \n
     size_t len = strlen(buf);
     if (len > 0 && buf[len-1] == '\n')
     {
